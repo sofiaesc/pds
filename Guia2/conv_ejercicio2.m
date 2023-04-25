@@ -8,7 +8,7 @@ t=[0 1 2 3];
 % CONVOLUCIÓN CIRCULAR DE OCTAVE
 pkg load signal
 N=length(x);
-conv_circular_octave = cconv(h,h,N);
+conv_circular_octave = cconv(x,h,N);
 plot(t,conv_circular_octave,'y','linewidth',2)
 
 % FUNCIÓN PROPIA DE CONVOLUCIÓN CIRCULAR
