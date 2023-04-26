@@ -15,7 +15,7 @@ plot(conv_lineal_yo,'b--','linewidth',1.5)
 
 % FUNCIÓN FILTER:
 % Conseguir A y B !!!!!!!!!!!!!!
-A=[1 1 1 1];
+A=[1 0 0 0];
 B=h;
 y = filter(B,A,x);
 plot(y,'m-*','linewidth',1.5)

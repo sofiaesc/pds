@@ -1,8 +1,8 @@
 clear all; clf; clc;
 
 % SEÑALES
-h=[0 1 3 0.5];
-x=[0 2 3 -2];
+h=[1 2 2 0];
+x=[2 1 0.5 0];
 t=[0 1 2 3];
 
 % CONVOLUCIÓN CIRCULAR DE OCTAVE
