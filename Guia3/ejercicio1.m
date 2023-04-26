@@ -32,7 +32,7 @@ raizvcm = rms(sino)
 
 % Obtengo señal:
 disp("\nRAMPA")
-t = (-1:0.01:1)';
+t = (-1:0.01:1);
 unitstep = t>=0;
 ramp = t.*unitstep;
 
