@@ -19,7 +19,7 @@ for n=3:size_t
 endfor
 
 subplot(1,3,1); % GRAFICO
-stem(t,y_1);
+stem(t,y_1,'m');
 % Es un sistema de tipo IIR, en particular, es un sistema AR, ya que la salida
 % depende de valores actuales de la entrada y de valores anteriores de la salida.
 
@@ -32,7 +32,7 @@ for n=2:size_t
 endfor
 
 subplot(1,3,2); % GRAFICO
-stem(t,y_2);
+stem(t,y_2,'m');
 % Es un sistema de tipo FIR ya que la salida depende sólo de entradas anteriores
 % y actual.
 
@@ -46,7 +46,7 @@ for n=3:size_t
 endfor
 
 subplot(1,3,3); % GRAFICO
-stem(t,y_3);
+stem(t,y_3,'m');
 % Es un sistema de tipo IIR, en particular, es un sistema AR, ya que la salida
 % depende de valores actuales de la entrada y de valores anteriores de la salida.
 % Es curioso este caso porque parece agotarse la respuesta al impulso, tiende a 0,

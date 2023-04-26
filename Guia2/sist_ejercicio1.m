@@ -4,10 +4,6 @@ clear all; clf; clc;
 %-----------------------------------
 %--------------ENTRADA--------------
 %-----------------------------------
-A=1;
-fs=2;
-fm=10;
-T=1/fm;
 n=0:0.5:10
 x=ones(1,length(n));
 
@@ -17,6 +13,10 @@ x=ones(1,length(n));
 
 % ------------INCISO A--------------
 % y[n] = g[n]x[n], g[n] = A.sin(wnT), w=2*pi*f
+A=1;
+fs=2;
+fm=10;
+T=1/fm;
 ya=A*sin(2*pi*fs*n*T).*x;
 
 % No lineal

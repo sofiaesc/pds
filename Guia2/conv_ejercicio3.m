@@ -28,8 +28,9 @@ conv_x_hB = convolucionlineal(x,hB);
 conv_hB_hA = convolucionlineal(conv_x_hB,hA);
 
 % PLOTEO:
-stem(conv_hA_hB,'b-*') % asterisco azul
+stem(conv_hA_hB,'b-*')
 hold on
-stem(conv_hB_hA,'y','linewidth',1) % lineas amarillas
+stem(conv_hB_hA,'y','linewidth',1)
+legend('Convolución hA -> hB','Convolución hB -> hA')
 
 % Comparación: obtengo el mismo resultado.
