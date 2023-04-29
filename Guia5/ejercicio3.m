@@ -30,33 +30,31 @@ plot(p3(1),p3(2),'rx')
 
 % En conclusión, no es estable porque hay un polo que no está
 % dentro del circulo unitario sino en el borde del mismo.
+% Sin embargo, si elimino los polos y ceros que coinciden, el
+% polo problematico se va y obtengo un sistema estable.
 
 %---------------------------------
 %-----------INCISO B--------------
 
-% impulso:
-x = zeros(1,10);
+x = zeros(1,20); % impulso:
 x(1) = 1;
+t = 1:length(x); % tiempo
 
-% tiempo:
-t = 0:9;
+A = [1 -0.7 0.1];
+B = [1 -1 1];
+y = filter(B,A,x); % sacando los polos y ceros que coinciden: estable, converge a cero.
 
-% señal:
-y = zeros(1,10);
-
-y(1) = x(1);
-%y(2) = 1.7*y(i-1) + x(i) - 2*x(i-1);
-%y(3) = 1.7*y(i-1) -0.8*y(i-2) + x(i) - 2*x(i-1) + 2*x(i-2);
-y(2) = 0.7*y(1) + x(2) - x(1);
-y(3) = 0.7*y(2) - 0.1*y(1) + x(3) - x(2) + x(1);
-
-for i=4:10
-  %y(i) = 1.7*y(i-1) -0.8*y(i-2) + 0.1*y(i-3) + x(i) - 2*x(i-1) + 2*x(i-2) - x(i-3); % sin sacar los polos y ceros que coinciden
-  y(i) = 0.7*y(i-1) - 0.1*y(i-2) + x(i) - x(i-1) + x(i-2);
-endfor
+A2 = [1 -1.7 0.7 -0.1];
+B2 = [1 -2 2 -1];
+y2 = filter(B2,A2,x); % sin sacar los polos y ceros que coinciden: inestable, diverge.
 
 figure(2)
+subplot(2,1,1)
 stem(t,y,'m')
+title('Sacando polos y ceros que coinciden')
+subplot(2,1,2)
+stem(t,y2,'m')
+title('Sin sacar polos y ceros que coinciden')
 
 %--------------------------------------------------------------------------------
 % HAY TRES POSIBILIDADES EN EL EJERCICIO B:
@@ -67,9 +65,9 @@ stem(t,y,'m')
 % si le pongo otra estoy asumiendo que habia algo antes del sistema.
 % quiero ver como responde solo al impulso.
 
-% Tambien puedo hacer antitransformada de Z pero no puedo por integral dificil.
+% Tambien puedo hacer antitransformada de Z pero no "podemos" por integral dificil.
 
 % Sino paso de H(z) a H(k) y despues hago antitransformada de Fourier,
 % pero no es valido si el sistema es de respuesta infinita IIR (para FIR si anda).
-% Para ser valido, tendria que poder ser capaz de calcular una h(n) infinita.
-% Sino me va a dar una aproximación que puede ser re mala.
+% Para ser valido, tendria que poder ser capaz de calcular una h(n) infinita,
+% sino me va a dar una aproximación que puede ser re mala.
