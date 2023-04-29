@@ -36,6 +36,8 @@ endfor
 subplot(1,3,2); % GRAFICO
 stem(t,y_2,'m');
 % Es un sistema de tipo FIR ya que la salida depende sólo de entradas anteriores y actual.
+% Respuesta al impulso de estos sistemas que solo dependen de entradas anteriores (no tienen
+% y(n-algo), es igual a los coeficientes.
 
 
 %-----------INCISO 3:-----------
@@ -54,5 +56,6 @@ stem(t,y_3,'m');
  depende de valores actuales de la entrada y de valores anteriores de la salida.
  Es curioso este caso porque parece agotarse la respuesta al impulso, tiende a 0,
  y se debe a que las salidas anteriores están multiplicadas por un escalar menor
- a 1. Esto lo hace un sistema INESTABLE.
+ a 1. Esto lo hace un sistema ESTABLE, ya que converge a cero.
+ Estabilidad ---> Entradas acotadas generan salidas acotadas.
 %}
